@@ -118,20 +118,18 @@ void* ifctele_genElement(int index, int age, unsigned int date, int place[N_HIST
 {	int i;	
 	ifs_ele_t*ptr;
 
-	ptr=malloc(sizeof(ifs_ele_t));
+	ptr=malloc(sizeof(ifs_ele_t)*N_HISTORY);
 	
 	ptr->index=index;
 	ptr->age=age;
 	ptr->date=date;
-	
-	for(i=0;i<5;i++)
-		ptr->place[i]=place[i];//
-			
+	for(i=0;i<5;i++){
+		ptr->place[i]=place[i];}//
 	return ptr;
 } //동적메모리를잡아서 메인한테넘겨주는형태로  
 	
 	
-int ifsele_getAge(void* obj){
+int ifctele_getAge(void* obj){
 	ifs_ele_t*ptr=(ifs_ele_t *)obj;
 		
 	return ptr->age;
@@ -142,15 +140,15 @@ unsigned int ifctele_getinfestedTime(void*obj);
 void ifsele_printElement(void *obj);
 
 	
-void ifsele_printElement(void *obj)
-{	int i;
+void ifctele_printElement(void *obj)
+{	int i=0;
 	ifs_ele_t*ptr=(ifs_ele_t *)obj;
 	
-	printf("Age: %i\n", ptr->age);
 	printf("index: %i\n", ptr->index);
+	printf("Age: %i\n", ptr->age);
 	printf("date: %i\n", ptr->date);
-	for(i=0;i<5;i++)
-		printf("palce: %s\n", countryName[ptr->place[i]]);
+	for(i;i<5;i++){
+		printf("place: %s\n", ifctele_getPlaceName(ptr->place[i]));}
 	/*
 	for(ifs_cnt)
 	{ printf(ifsarray[i].index);

@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
     	ifctdb_addTail(ifct_element);
 	
 		
-		ifctele_printfElement(ifct_element);
+		//ifctele_printElement(ifct_element);
     	//age=ifctele_getAge(ifct_element);
     	
 	}
@@ -96,11 +96,19 @@ int main(int argc, const char * argv[]) {
 				
 				//ifct_element=(void*)malloc(sizeof(ifs_ele));
 				
+				printf("patient index :");
+				scanf("%i",&pIndex);
+				
 				ifct_element=ifctdb_getData(pIndex);
-				ifsele_printElement(ifct_element);
+				ifctele_genElement(pIndex,age,time,placeHist);
+				ifctele_printElement(ifct_element);
+				//printf("%s",ifct_element);
+				
+				
                 break; // int ifctele_getAge(void*obj)
                 
             case MENU_PLACE:
+                
                 
                 break;
                 
